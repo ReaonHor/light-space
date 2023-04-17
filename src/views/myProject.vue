@@ -214,10 +214,14 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
       // transform: translateX(0px) !important;
     }
     .cut {
-      width: 80% !important;
-      height: 80% !important;
+      width: 90% !important;
+      height: 90% !important;
       border-radius: 10px !important;
       overflow: hidden !important;
+      img {
+        transform: scale(.7);
+      }
+ 
     }
     a {
       width: 100% !important;
@@ -260,6 +264,9 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
         border-radius: 50%;
         overflow: hidden;
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
       a {
         display: block;
@@ -282,7 +289,7 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
         }
       }
       p {
-        margin: 10px ;
+        margin: 10px;
         text-align: center;
         font-size: 18px;
         color: var(--color2);

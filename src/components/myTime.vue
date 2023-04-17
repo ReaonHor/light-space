@@ -18,7 +18,7 @@
         <span class="marker_4"></span>
         <span class="marker_5"></span>
         <span class="marker_6"></span>
-        <span class="wu">{{wu=1?'下午':'上午'}}</span>
+        <span class="wu">{{wu==1?'下午':'上午'}}</span>
         <div class="mask"></div>
       </div>
     </div>
@@ -73,6 +73,7 @@ export default {
       let m = res.minutes
       let s = res.seconds
       console.log(h)
+      console.log(this.wu)
       this.timer = setInterval(() => {
         s += 1
         let hDeg = (h % 12 + m / 60) * 30

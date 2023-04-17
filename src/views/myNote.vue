@@ -146,7 +146,7 @@ export default {
           name: 'Http',
           icon: 'icon-wangluo',
           lo: 12,
-          lo10: true,
+          lo9: true,
           type: '其他',
           block: true
         },
@@ -165,7 +165,7 @@ export default {
           icon: 'icon-chrome',
           lo: 14,
           lo9: true,
-          type: '浏览器',
+          type: '其他',
           block: true
         },
         {
@@ -202,6 +202,15 @@ export default {
           lo: 18,
           lo2: true,
           type: 'TypeScript',
+          block: true
+        },
+        {
+          id: 19,
+          name: 'Koa2/Express',
+          icon: 'icon-node-js',
+          lo: 19,
+          lo6: true,
+          type: 'Node.js',
           block: true
         }
       ],
@@ -273,7 +282,7 @@ export default {
 <style lang="scss" scoped>
 $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
   -0.21rem -0.21rem 0.52rem var(--white);
-  @media screen and (min-width: 700px) and (max-width: 879px) {
+@media screen and (min-width: 700px) and (max-width: 879px) {
   .tab-container {
     .note {
       width: 185px !important;
@@ -307,11 +316,11 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
     width: 100% !important;
     padding: 15px 0px !important;
     .tab-ka {
-      width: 95% !important;
+      width: 100% !important;
       // transform: translateX(0px) !important;
     }
     .note {
-      width: 100% !important;
+      width: 95% !important;
       height: 90px !important;
       box-shadow: 0.25rem 0.25rem 0.45rem var(--greyLight-2),
         -0.15rem -0.15rem 0.3rem var(--white);
@@ -346,7 +355,6 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
       position: absolute;
       opacity: 1;
       transition: transform 0.8s;
-
       .note {
         position: relative;
         margin: 0 auto;
