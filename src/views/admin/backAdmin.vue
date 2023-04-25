@@ -141,7 +141,8 @@ export default {
           }).then(res => {
             if (res.data.code == '200') {
               ElMessage({
-                message: '修改成功'
+                message: '修改成功',
+                type:'success'
               })
             } else {
               ElMessage.error('修改失败')

@@ -1,10 +1,14 @@
 <template>
   <div class="note wn">
-    <h3><span class="iconfont icon-biji"></span>笔记</h3>
-    <my-tab :tabName="['全部','JavaScript','TypScript','H+C','Vue','React','Node.js','数据库','uni-app','其他']" @chooseTab="chooseTab1"></my-tab>
+    <h3>
+      <span class="iconfont icon-biji"></span>笔记
+    </h3>
+    <my-tab :tabName="['全部', 'JavaScript', 'TypScript', 'H+C', 'Vue', 'React', 'Node.js', '数据库', 'uni-app', '其他']"
+      @chooseTab="chooseTab1"></my-tab>
     <div class="tab-container" :style="tabHeight">
-      <div class="tab-ka" v-for="(item) in notes" :key="item.id" :style="transform(item.lo,item.block)">
-        <div class="note c" v-jump @mouseup="this.$router.push({name:'showNote',query:{id:item.id,name:item.name,icon:item.icon}})">
+      <div class="tab-ka" v-for="(item) in notes" :key="item.id" :style="transform(item.lo, item.block)">
+        <div class="note c" v-jump
+          @mouseup="this.$router.push({ name: 'showNote', query: { id: item.id, name: item.name, icon: item.icon } })">
           <div class="icon"><span class="iconfont" :class="item.icon"></span></div>
           <h2>{{ item.name }}</h2>
           <span class="name">{{ item.type }}</span>
@@ -12,9 +16,9 @@
       </div>
     </div>
     <h3><span class="iconfont icon-huixingzhen"></span>官方文档</h3>
-    <my-tab :tabName="['全部','前端','后端','UI','组件库']" @chooseTab="chooseTab2"></my-tab>
+    <my-tab :tabName="['全部', '前端', '后端', 'UI', '组件库']" @chooseTab="chooseTab2"></my-tab>
     <div class="tab-container" :style="ofcTabHeight">
-      <div class="tab-ka" v-for="(item) in ofc" :key="item.id" :style="transform(item.lo,item.block)">
+      <div class="tab-ka" v-for="(item) in ofc" :key="item.id" :style="transform(item.lo, item.block)">
         <div class="note c" v-jump>
           <div class="icon"></div>
           <h2></h2>
@@ -212,6 +216,15 @@ export default {
           lo6: true,
           type: 'Node.js',
           block: true
+        },
+        {
+          id: 20,
+          name: '操作系统',
+          icon: 'icon-zujian',
+          lo: 20,
+          lo9: true,
+          type: '其他',
+          block: true
         }
       ],
       mynotes: [],
@@ -282,6 +295,7 @@ export default {
 <style lang="scss" scoped>
 $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
   -0.21rem -0.21rem 0.52rem var(--white);
+
 @media screen and (min-width: 700px) and (max-width: 879px) {
   .tab-container {
     .note {
@@ -299,6 +313,7 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
     }
   }
 }
+
 @media screen and (min-width: 1020px) and (max-width: 1240px) {
   .tab-container {
     .note {
@@ -307,18 +322,22 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
     }
   }
 }
+
 @media screen and (max-width: 700px) {
   .wn {
     width: 100% !important;
     padding: 0 10px;
   }
+
   .tab-container {
     width: 100% !important;
     padding: 15px 0px !important;
+
     .tab-ka {
       width: 100% !important;
       // transform: translateX(0px) !important;
     }
+
     .note {
       width: 95% !important;
       height: 90px !important;
@@ -327,6 +346,8 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
     }
   }
 }
+
+
 .wn {
   width: 80%;
   margin: 0 auto;
@@ -338,6 +359,7 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
     letter-spacing: 0.5rem;
     font-weight: 400;
     padding-top: 2.25rem;
+
     .iconfont {
       font-size: 2.5rem;
     }
@@ -349,12 +371,14 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
     height: 600px;
     overflow: hidden;
     transition: all 0.8s;
+
     .tab-ka {
       width: 33.333%;
       padding: 15px 0px;
       position: absolute;
       opacity: 1;
       transition: transform 0.8s;
+
       .note {
         position: relative;
         margin: 0 auto;
@@ -366,6 +390,7 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
         background-color: var(--bgc1);
         display: flex;
         align-items: center;
+
         h2 {
           text-align: center;
           width: 33.3%;
@@ -373,6 +398,7 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
           letter-spacing: 2px;
           padding-bottom: 1.875rem;
         }
+
         .name {
           position: absolute;
           right: 10px;
@@ -380,21 +406,25 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
           font-weight: 300;
           letter-spacing: 2px;
         }
+
         .icon {
           width: 38%;
           height: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
+
           .iconfont {
             font-size: 3.43rem;
           }
         }
       }
+
       .c {
         box-shadow: 0.2rem 0.2rem 0.4rem var(--greyLight-2),
           -0.2rem -0.2rem 0.4rem var(--white);
       }
+
       .down {
         box-shadow: inset 0.2rem 0.2rem 0.4rem var(--greyLight-2),
           inset -0.2rem -0.2rem 0.4rem var(--white);

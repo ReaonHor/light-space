@@ -1,13 +1,13 @@
 <template>
   <div class="prj wd">
     <h3><span class="iconfont icon-xiangmu"></span>作品</h3>
-    <my-tab :tabName="['全部','HTML5','前端','全栈']" @chooseTab="chooseTab1"></my-tab>
+    <my-tab :tabName="['全部', 'HTML5', '前端', '全栈']" @chooseTab="chooseTab1"></my-tab>
     <div class="tab-container" :style="tabHeight">
-      <div class="tab-ka" v-for="(item) in prj" :key="item.id" :style="transform(item.lo,item.block)">
+      <div class="tab-ka" v-for="(item) in prj" :key="item.id" :style="transform(item.lo, item.block)">
         <div>
           <a :href="item.url">
             <div class="cut">
-              <img :src="item.imageUrl" alt="">
+              <img :src="item.imageUrl">
             </div>
           </a>
         </div>
@@ -15,9 +15,9 @@
       </div>
     </div>
     <h3><span class="iconfont icon-bianji"></span>Demo</h3>
-    <my-tab :tabName="['全部','CSS','webSocket']" @chooseTab="chooseTab2"></my-tab>
+    <my-tab :tabName="['全部', 'CSS', 'webSocket']" @chooseTab="chooseTab2"></my-tab>
     <div class="tab-container" :style="demoHeight">
-      <div class="tab-ka" v-for="(item) in demo" :key="item.id" :style="transform(item.lo,item.block)">
+      <div class="tab-ka" v-for="(item) in demo" :key="item.id" :style="transform(item.lo, item.block)">
         <div>
           <a href="">
             <img :src="item.imageUrl">
@@ -38,7 +38,7 @@ export default {
     return {
       prj_data: [{
         id: 0,
-        url: '',
+        url: 'https://github.com/ReaonHor/light-space',
         imageUrl: require('../assets/light.png'),
         name: 'light-Space',
         lo: 0,
@@ -164,24 +164,28 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
   width: 80%;
   margin: 0 auto;
 }
+
 @media screen and (min-width: 701px) and (max-width: 880px) {
   .tab-container {
     .cut {
       width: 130px !important;
       height: 130px !important;
     }
+
     a {
       width: 200px !important;
       height: 160px !important;
     }
   }
 }
+
 @media screen and (min-width: 880px) and (max-width: 1020px) {
   .tab-container {
     .cut {
       width: 160px !important;
       height: 160px !important;
     }
+
     a {
       width: 220px !important;
       height: 180px !important;
@@ -195,34 +199,41 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
       width: 180px !important;
       height: 180px !important;
     }
+
     a {
       width: 260px !important;
       height: 200px !important;
     }
   }
 }
+
 @media screen and (max-width: 700px) {
   .wd {
     width: 100% !important;
     padding: 0 10px;
   }
+
   .tab-container {
     width: 100% !important;
     padding: 15px 0px !important;
+
     .tab-ka {
       width: 100% !important;
       // transform: translateX(0px) !important;
     }
+
     .cut {
       width: 90% !important;
       height: 90% !important;
       border-radius: 10px !important;
       overflow: hidden !important;
+
       img {
         transform: scale(.7);
       }
- 
+
     }
+
     a {
       width: 100% !important;
       height: 138px !important;
@@ -230,22 +241,26 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
     }
   }
 }
+
 .prj {
   h3 {
     font-size: 2.5rem;
     letter-spacing: 0.5rem;
     font-weight: 400;
     padding-top: 36px;
+
     .iconfont {
       font-size: 2.5rem;
     }
   }
+
   .tab-container {
     position: relative;
     width: 100%;
     height: 600px;
     overflow: hidden;
     transition: all 0.8s;
+
     .tab-ka {
       width: 33.333%;
       padding: 15px 0px;
@@ -253,11 +268,13 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
       opacity: 1;
       transition: all 0.8s;
       background-color: var(--bgc1);
+
       &:hover {
         p {
           color: var(--color1);
         }
       }
+
       .cut {
         width: 230px;
         height: 230px;
@@ -268,6 +285,7 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
         justify-content: center;
         align-items: center;
       }
+
       a {
         display: block;
         margin: 0 auto;
@@ -280,14 +298,17 @@ $shadow5: 0.32rem 0.32rem 0.62rem var(--greyLight-2),
         align-items: center;
         background-color: var(--bgc1);
         box-shadow: $shadow5;
+
         img {
           width: 100%;
         }
+
         &:hover {
           box-shadow: 0.25rem 0.25rem 0.45rem var(--greyLight-2),
             -0.15rem -0.15rem 0.3rem var(--white);
         }
       }
+
       p {
         margin: 10px;
         text-align: center;

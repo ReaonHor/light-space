@@ -46,7 +46,7 @@ export default {
     ElMessage({
       message: '请先登录',
       type: 'warning',
-      duration: 800
+      duration: 1000
     })
   }
 }
