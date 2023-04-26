@@ -2,19 +2,19 @@
   <div class="home">
     <my-time></my-time>
     <div class="home-menu">
-      <div class="home-note c" v-jump @mouseup="this.$router.push({name:'note'})">
+      <div class="home-note c" v-jump @mouseup="this.$router.push({ name: 'note' })">
         <span class="iconfont icon-biji"></span>
         <span>笔记</span>
       </div>
-      <div class="home-prj c" v-jump @mouseup="this.$router.push({name:'project'})">
+      <div class="home-prj c" v-jump @mouseup="this.$router.push({ name: 'project' })">
         <span class="iconfont icon-xiangmu"></span>
         <span>作品</span>
       </div>
-      <div class="home-about c" v-jump @mouseup="this.$router.push({name:'about'})">
+      <div class="home-about c" v-jump @mouseup="this.$router.push({ name: 'about' })">
         <span class="iconfont icon-guanyu1"></span>
         <span>关于</span>
       </div>
-      <div class="home-plan c" v-jump @mouseup="this.$router.push({name:'plan'})">
+      <div class="home-plan c" v-jump @mouseup="this.$router.push({ name: 'plan' })">
         <span class="iconfont icon-daiban"></span>
         <span>待办</span>
       </div>
@@ -22,28 +22,16 @@
   </div>
 </template>
 
-<script>
+<script setup>
 
+
+
+</script>
+
+<script>
 import myTime from '@/components/myTime.vue'
 export default {
   name: 'myHome',
-  data () {
-    return {
-      mousedown: false
-
-    }
-  },
-  mounted () {
-
-  },
-  methods: {
-    toNote () {
-      this.mousedown = false
-      this.$router.push({
-        name: 'note',
-      })
-    },
-  },
   components: {
     myTime
   }
@@ -65,18 +53,21 @@ $little-inner-shadow: inset 1px 1px 1px var(--greyLight-2),
   .home {
     min-height: calc(100vh - 135px);
     position: relative;
+
     .home-menu {
       width: 100% !important;
       padding: 10px;
       margin: 30px 0 !important;
       justify-content: center;
       height: 272px !important;
+
       div {
         width: 100% !important;
         height: 50px !important;
         line-height: 50px !important;
         font-size: 18px !important;
         letter-spacing: 5px;
+
         .iconfont {
           font-size: 18px !important;
         }
@@ -84,6 +75,7 @@ $little-inner-shadow: inset 1px 1px 1px var(--greyLight-2),
     }
   }
 }
+
 @media screen and (min-width: 701px) and (max-width: 959px) {
   .home-menu {
     width: 730px !important;
@@ -91,18 +83,21 @@ $little-inner-shadow: inset 1px 1px 1px var(--greyLight-2),
     margin: 20px auto 0 !important;
     justify-content: center;
     height: 272px !important;
+
     div {
       width: 315px !important;
       height: 82px !important;
       line-height: 82px !important;
       font-size: 24px !important;
       letter-spacing: 3px;
+
       .iconfont {
         font-size: 24px !important;
       }
     }
   }
 }
+
 @media screen and (min-width: 960px) and (max-width: 1240px) {
   .home-menu {
     width: 960px !important;
@@ -110,12 +105,14 @@ $little-inner-shadow: inset 1px 1px 1px var(--greyLight-2),
     margin: 30px auto !important;
     justify-content: center;
     height: 272px !important;
+
     div {
       width: 400px !important;
       height: 90px !important;
       line-height: 90px !important;
       font-size: 26px !important;
       letter-spacing: 5px;
+
       .iconfont {
         font-size: 26px !important;
       }
@@ -132,6 +129,7 @@ $little-inner-shadow: inset 1px 1px 1px var(--greyLight-2),
     justify-content: space-evenly;
     flex-wrap: wrap;
     cursor: pointer;
+
     div {
       width: 28rem;
       height: 7rem;
@@ -140,10 +138,12 @@ $little-inner-shadow: inset 1px 1px 1px var(--greyLight-2),
       text-align: center;
       font-size: 2rem;
       letter-spacing: 0.7rem;
+
       .iconfont {
         font-size: 2rem;
       }
     }
+
     .c {
       box-shadow: 0.2rem 0.2rem 0.4rem var(--greyLight-2),
         -0.2rem -0.2rem 0.4rem var(--white);

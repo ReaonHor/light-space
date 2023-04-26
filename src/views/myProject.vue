@@ -47,7 +47,7 @@ export default {
       },
       {
         id: 1,
-        url: 'https://github.com/ReaonHor/EasonChan1.2',
+        url: 'http://eason.horblog.live',
         imageUrl: require('../assets/eason.png'),
         name: 'Eason-Chan',
         lo: 1,

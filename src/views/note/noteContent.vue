@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 490px) {
   .mulu {
     display: none !important;
   }
@@ -76,7 +76,7 @@ export default {
     width: 90% !important;
   }
 
-  
+
 }
 
 @media screen and (max-width: 700px) {

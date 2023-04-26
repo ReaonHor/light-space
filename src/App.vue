@@ -11,7 +11,7 @@
       <div class="w">
         <div class="icon-m" @click="open = !open"><span class="iconfont icon-daohang"></span></div>
         <div class="login" :style="{ 'backgroundImage': `url(${!bgc ? 'day_logo.png' : 'dark-logo.png'})` }"
-          @click="this.$router.push({ name: 'home' })"></div>
+          @click="obj.$router.push({ name: 'home' })"></div>
         <div class="nav">
           <ul>
             <li><router-link to="home" active-class="nav-active"><span
@@ -27,7 +27,7 @@
             <li><router-link to="about" active-class="nav-active"><span
                   class="iconfont icon-guanyu1"></span>关于</router-link></li>
             <li><router-link to="manger" active-class="nav-active"><span class="iconfont icon-guanliyuan1
-                                  "></span>管理</router-link></li>
+                                                      "></span>管理</router-link></li>
           </ul>
         </div>
         <div class="bgc">
@@ -65,7 +65,7 @@
           <li><router-link to="about" active-class="m-nav-active"><span
                 class="iconfont icon-guanyu1"></span>关于</router-link></li>
           <li><router-link to="manger" active-class="m-nav-active"><span class="iconfont icon-guanliyuan1
-                                  "></span>管理</router-link></li>
+                                                      "></span>管理</router-link></li>
         </ul>
       </div>
 
@@ -107,58 +107,51 @@
   </div>
 </template>
 
-
-<script>
+<script setup>
 import '@/assets/iconfont.css'
 import { throttle } from '@/util/throttle'
-export default {
-  data () {
-    return {
-      isfade: false,
-      bgc: false,
-      open: true,
-      weima: false,
-      load: true
-    }
-  },
-  beforeMount () {
-    this.load = false
-  },
-  mounted () {
-    window.addEventListener('scroll', throttle(() => {
-      let scrollY = window.scrollY
-      if (scrollY > 10) {
-        this.open = true
-      }
-      if (scrollY > 100) {
-        this.isfade = true
-      } else {
-        this.isfade = false
-      }
-    }, 80, true)
-
-    )
-
-
-
-  },
-  methods: {
-    changeBgc () {
-      !this.bgc ? document.body.classList.add('dark') : document.body.classList.remove('dark')
-      this.$store.commit('changeBgc', !this.bgc)
-
-    },
-    toTop () {
-      let sTop = document.documentElement.scrollTop || document.body.scrollTop
-      if (sTop > 0) {
-        window.requestAnimationFrame(this.toTop)
-        window.scrollTo(0, sTop - sTop / 8)
-      }
-    }
-  }
-
+import { reactive, onBeforeMount, onMounted, toRefs } from 'vue'
+import { useStore } from 'vuex'
+const store = useStore()
+let obj = reactive({
+  isfade: false,
+  bgc: false,
+  open: true,
+  weima: false,
+  load: true
+})
+let { weima, load, isfade, open, bgc } = toRefs(obj)
+const changeBgc = () => {
+  obj.bgc ? document.body.classList.add('dark') : document.body.classList.remove('dark')
+  store.commit('changeBgc', !obj.bgc)
 }
+const toTop = () => {
+  let sTop = document.documentElement.scrollTop || document.body.scrollTop
+  if (sTop > 0) {
+    window.requestAnimationFrame(toTop())
+    window.scrollTo(0, sTop - sTop / 8)
+  }
+}
+onBeforeMount(() => {
+  obj.load = false
+})
+onMounted(() => {
+  window.addEventListener('scroll', throttle(() => {
+    let scrollY = window.scrollY
+    if (scrollY > 10) {
+      obj.open = true
+    }
+    if (scrollY > 100) {
+      obj.isfade = true
+    } else {
+      obj.isfade = false
+    }
+  }, 80, true), { passive: true }
+  )
+})
+
 </script>
+
 <style lang="scss">
 $shadow3: 0.1rem 0.1rem 0.2rem var(--greyLight-2),
   -0.1rem -0.1rem 0.2rem var(--white);
@@ -472,7 +465,7 @@ a {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 490px) {
   .md-editor-content .md-editor-preview {
     padding: 0 !important;
   }

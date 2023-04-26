@@ -23,8 +23,10 @@ npm run lint
 * 优化了上午下午bug
 * 禁用双指放大
 * 优化了'作品'显示图片位置问题
+* 对于手机的触摸事件进行优化
 
 ### 1.2
 * 将备案号添加链接指向官网
+* 笔记主体页，小屏幕隐藏
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
