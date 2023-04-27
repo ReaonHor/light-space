@@ -28,5 +28,8 @@ npm run lint
 ### 1.2
 * 将备案号添加链接指向官网
 * 笔记主体页，小屏幕隐藏
+### 1.3
+* 将选项式api改为组合式api
+* 将translate改为translate3d，使用硬件加速，解决手机端卡顿问题
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
