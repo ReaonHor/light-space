@@ -11,7 +11,7 @@
       <div class="w">
         <div class="icon-m" @click="open = !open"><span class="iconfont icon-daohang"></span></div>
         <div class="login" :style="{ 'backgroundImage': `url(${!bgc ? 'day_logo.png' : 'dark-logo.png'})` }"
-          @click="obj.$router.push({ name: 'home' })"></div>
+          @click="router.push({ name: 'home' })"></div>
         <div class="nav">
           <ul>
             <li><router-link to="home" active-class="nav-active"><span
@@ -111,8 +111,10 @@
 import '@/assets/iconfont.css'
 import { throttle } from '@/util/throttle'
 import { reactive, onBeforeMount, onMounted, toRefs } from 'vue'
+import { useRouter } from 'vue-router';
 import { useStore } from 'vuex'
 const store = useStore()
+const router = useRouter()
 let obj = reactive({
   isfade: false,
   bgc: false,
@@ -122,13 +124,14 @@ let obj = reactive({
 })
 let { weima, load, isfade, open, bgc } = toRefs(obj)
 const changeBgc = () => {
-  obj.bgc ? document.body.classList.add('dark') : document.body.classList.remove('dark')
+  !obj.bgc ? document.body.classList.add('dark') : document.body.classList.remove('dark')
   store.commit('changeBgc', !obj.bgc)
 }
+
 const toTop = () => {
   let sTop = document.documentElement.scrollTop || document.body.scrollTop
   if (sTop > 0) {
-    window.requestAnimationFrame(toTop())
+    window.requestAnimationFrame(toTop)
     window.scrollTo(0, sTop - sTop / 8)
   }
 }
